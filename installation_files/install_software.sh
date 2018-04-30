@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# install linux-surface kernel (download .dev files first):
+git clone https://github.com/jakeday/linux-surface.git ~/linux-surface
+cd ~/linux-surface
+sudo sh setup.sh
+sudo dpkg -i linux-headers-[VERSION].deb linux-image-[VERSION].deb linux-libc-dev-[VERSION].deb
+
 # install sublime text:
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 
@@ -26,7 +32,7 @@ sudo apt-get install fonts-powerline
 # install powerline:
 sudo apt-get install powerline
 
-# Change theme in ~/.bashrc (hidden file): export BASH_IT_THEME='powerline-plain
+# Change theme in ~/.bashrc (hidden file): export BASH_IT_THEME='powerline-plain'
 
 # install r:
 sudo apt-get install r-base-core
