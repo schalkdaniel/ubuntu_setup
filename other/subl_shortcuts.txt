@@ -1,0 +1,21 @@
+# Sublime Text Shortcuts
+
+- Split editor into multiple columns (e.g. 2):
+    [shift+alt+2]
+
+- Switch between multiple columnns (views, first col):
+    [ctrl+1]
+
+- Move open file to a column (into second col):
+    [ctrl+shift+2]
+
+- Multiple cursor:
+    [ctrl+mouse click]
+
+- Move row with curser:
+    [ctrl+shift+up/down]
+
+- Duplicate row with curser:
+    [ctrl+shift+d]
+
+ 
