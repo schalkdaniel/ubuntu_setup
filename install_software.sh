@@ -6,7 +6,8 @@
 # sudo sh setup.sh
 # sudo dpkg -i linux-headers-[VERSION].deb linux-image-[VERSION].deb linux-libc-dev-[VERSION].deb
 
-# install sublime text:
+## sublime text:
+## -------------------------
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 
 sudo apt-get install apt-transport-https
@@ -16,10 +17,13 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt-get update
 sudo apt-get install sublime-text
 
-# install git:
+## git:
+## -------------------------
+
 sudo apt-get install git
 
-# install and set up tmux:
+## tmux:
+## -------------------------
 sudo apt-get install tmux
 
 # customize ubuntu by installing: https://github.com/gpakosz/.tmux
@@ -34,19 +38,31 @@ sudo apt-get install tmux
 # unbind %
 
 
-# bash-it:
+## bash-it:
+## -------------------------
 git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 ~/.bash_it/install.sh
 
-# powerline font:
+## powerline font:
+## -------------------------
 sudo apt-get install fonts-powerline
 
-# install powerline:
+## powerline:
+## -------------------------
 sudo apt-get install powerline
 
 # Change theme in ~/.bashrc (hidden file): export BASH_IT_THEME='powerline-plain'
 
-# install r:
+## onedirve:
+## -------------------------
+sudo apt-get install onedrive
+
+## pandoc:
+## -------------------------
+sudo apt-get install pandoc
+
+## R:
+## -------------------------
 sudo apt-get install r-base-core
 sudo apt-get install r-base-dev
 
@@ -54,8 +70,13 @@ sudo apt-get install build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev 
 
 Rscript setup_files/r_packages.R
 
-# Install texlive base:
+## texlive:
+## -------------------------
 sudo apt-get install texlive-full
+
+
+## Additional Stuff:
+## -------------------------
 
 # Sublime extenstion:
 #   - SendCode

@@ -1,0 +1,58 @@
+[
+	// Make curved and squqre brackets behave like curly braces:
+	{ "keys": ["enter"], "command": "run_macro_file", "args": {"file": "res://Packages/User/MyAddLineInBraces.sublime-macro"}, "context":
+    [
+      { "key": "setting.auto_indent", "operator": "equal", "operand": true },
+      { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+      { "key": "preceding_text", "operator": "regex_contains", "operand": "\\($", "match_all": true },
+      { "key": "following_text", "operator": "regex_contains", "operand": "^\\)", "match_all": true }
+    ]
+	},
+	{ "keys": ["enter"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line in Braces.sublime-macro"}, "context":
+    [
+      { "key": "setting.auto_indent", "operator": "equal", "operand": true },
+      { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+      { "key": "preceding_text", "operator": "regex_contains", "operand": "\\[$", "match_all": true },
+      { "key": "following_text", "operator": "regex_contains", "operand": "^\\]", "match_all": true }
+    ]
+	},
+	// Render actual file:
+	{ 
+		"keys": ["ctrl+shift+r"], 
+		"command": "send_repl", 
+		"args": {
+			"cmd": "setwd(\"$file_path\")\nknitr::knit(\"$file\", output=\"$file_base_name.tex\")\ntools::texi2dvi(\"$file_base_name.tex\", pdf = TRUE)"
+		}
+	},
+	// Open actual file with google chrome:
+	{ 
+		"keys": ["ctrl+shift+g"], 
+		"command": "send_repl", 
+		"args": {
+			"cmd": "google-chrome \"$file\""
+		}
+	},
+	// Reindent selection:
+	{
+		"keys": ["ctrl+i"], 
+		"command": "reindent", 
+		"args": {"single_line": true}
+	},
+	// Select line (multiple cursers):
+	{ 
+		"keys": ["ctrl+alt+up"], 
+		"command": "select_lines", 
+		"args": {"forward": false} 
+	},
+	{ 
+		"keys": ["ctrl+alt+down"], 
+		"command": "select_lines", 
+		"args": {"forward": true} 
+	},
+	// Comment or delete comment from selection: 
+	{ 
+		"keys": ["ctrl+shift+c"], 
+		"command": "toggle_comment", 
+		"args": { "block": false } 
+	}
+]
