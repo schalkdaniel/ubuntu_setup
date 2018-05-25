@@ -22,6 +22,9 @@ sudo apt-get install sublime-text
 
 sudo apt-get install git
 
+git config --global user.name "schalkdaniel"
+git config --global user.email d-schalk@t-online.de
+
 ## tmux:
 ## -------------------------
 sudo apt-get install tmux
