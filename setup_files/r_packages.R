@@ -5,7 +5,8 @@ packages = c(
 	"tidyverse",
 	"Rcpp",
 	"RcppArmadillo",
-	"mlr"
+	"mlr",
+	"gridExtra"
 )
 
 install.packages(packages)
