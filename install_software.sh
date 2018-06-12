@@ -56,10 +56,6 @@ sudo apt-get install powerline
 
 # Change theme in ~/.bashrc (hidden file): export BASH_IT_THEME='powerline-plain'
 
-## onedirve:
-## -------------------------
-sudo apt-get install onedrive
-
 ## pandoc:
 ## -------------------------
 sudo apt-get install pandoc
@@ -76,6 +72,12 @@ Rscript setup_files/r_packages.R
 ## texlive:
 ## -------------------------
 sudo apt-get install texlive-full
+
+## Doxygen:
+## -------------------------
+sudo apt-get doxygen
+sudo apt-get graphviz
+
 
 
 ## Additional Stuff:
@@ -97,3 +99,6 @@ sudo apt-get install texlive-full
 # - pbtex: pdflatex + bibtex + 2x pdflatex
 sudo chmod +x ~/bin/pbtex
 
+
+
+# Create shortcuts
