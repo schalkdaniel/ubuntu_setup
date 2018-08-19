@@ -102,6 +102,19 @@ python:
 	make preparations
 	sudo -H apt -y install python-pip
 	sudo -H pip install --upgrade pip
+	sudo apt-get install python-pip python-dev
+	sudo apt-get install python3-dev
+	sudo apt install python3-pip
+
+
+tensorflow-keras:
+	make cuda
+	sudo pip3 install -U tensorflow-gpu  # Python 3.n
+	pip3 install numpy scipy
+	pip3 install scikit-learn
+	pip3 install pillow
+	pip3 install h5py
+	pip3 install keras
 
 slack:
 	sudo snap install slack --classic

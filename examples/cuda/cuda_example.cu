@@ -1,7 +1,9 @@
 #include <iostream>
 #include <math.h>
 // Kernel function to add the elements of two arrays
-// compile with nvcc cuda_example.cu -o cuda_add
+// Compile: 
+// $ cuda_example.cu -o cuda_add
+// $ ./cuda_add
 __global__
 void add(int n, float *x, float *y)
 {
