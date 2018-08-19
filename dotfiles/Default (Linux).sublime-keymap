@@ -54,5 +54,11 @@
 		"keys": ["ctrl+shift+c"], 
 		"command": "toggle_comment", 
 		"args": { "block": false } 
-	}
+	},
+  // Insert rmd code chunks
+  {
+    "keys": ["ctrl+alt+i"],
+    "command": "insert_snippet",
+    "args": { "contents": "```{r}\n$0\n```"}
+  }
 ]
