@@ -20,6 +20,7 @@ all:
 	make R
 	make rstudio
 	make python
+	make tensorflow-keras
 	make slack
 	make latex
 	make sublime
@@ -107,14 +108,14 @@ python:
 	sudo apt install python3-pip
 
 
-tensorflow-keras:
-	make cuda
-	sudo pip3 install -U tensorflow-gpu  # Python 3.n
-	pip3 install numpy scipy
-	pip3 install scikit-learn
-	pip3 install pillow
-	pip3 install h5py
-	pip3 install keras
+# tensorflow-keras:
+# 	make cuda
+# 	sudo pip3 install -U tensorflow-gpu  # Python 3.n
+# 	pip3 install numpy scipy
+# 	pip3 install scikit-learn
+# 	pip3 install pillow
+# 	pip3 install h5py
+# 	pip3 install keras
 
 slack:
 	sudo snap install slack --classic
@@ -156,3 +157,7 @@ impressive:
 doxygen:
 	sudo apt-get doxygen
 	sudo apt-get graphviz
+
+ssh-key:
+	ssh-keygen -t rsa -b 4096 -C "d-schalk@t-online.de"
+	ssh-add ubuntu_home_git
