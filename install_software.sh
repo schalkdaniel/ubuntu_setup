@@ -15,26 +15,15 @@ sudo apt-get install git
 git config --global user.name "schalkdaniel"
 git config --global user.email d-schalk@t-online.de
 
-## pandoc:
-## -------------------------
-sudo apt-get install pandoc
-
-## texlive:
-## -------------------------
-sudo apt-get install texlive-full
 
 
 ## Additional Stuff:
 ## -------------------------
 
 # Sublime extenstion:
-#   - SendCode
 #   - R-Box
 #   - Emmet
 #   - LaTeXTools
-#		- Theme: Cola
-#   - Copy setup_files/MyAddLineInBraces.sublime-macro to ./home/.config/sublime-text3/Packages/User
-#   - Key Bindings: setup_files/subl_key_binidngs.json T
 
 # install own bash commands
 # 1. copy bin folder of repository into home

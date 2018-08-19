@@ -18,10 +18,18 @@
 	},
 	// Render actual file:
 	{ 
-		"keys": ["ctrl+shift+r"], 
+		"keys": ["ctrl+shift+k"], 
 		"command": "send_repl", 
 		"args": {
-			"cmd": "setwd(\"$file_path\")\nknitr::knit(\"$file\", output=\"$file_base_name.tex\")\ntools::texi2dvi(\"$file_base_name.tex\", pdf = TRUE)"
+			"cmd": "rmarkdown::render(\"$file\")"
+		}
+	},
+	// Open actual file with google chrome:
+	{ 
+		"keys": ["ctrl+shift+g"], 
+		"command": "send_repl", 
+		"args": {
+			"cmd": "google-chrome \"$file\""
 		}
 	},
 	// Reindent selection:
@@ -46,11 +54,5 @@
 		"keys": ["ctrl+shift+c"], 
 		"command": "toggle_comment", 
 		"args": { "block": false } 
-	},
-	// Insert rmd code chunks
-	{
-		"keys": ["ctrl+shift+i"],
-		"command": "insert",
-		"args": { "characters": "```{r}\n```"}
 	}
 ]

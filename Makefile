@@ -5,7 +5,7 @@
 #
 # Adapted from: https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 
-.PHONY:	update upgrade preparations graphics google_chrome python slack latex sublime java tools rstudio bash-it ssh-key docker
+.PHONY:	update upgrade preparations graphics google_chrome python slack latex sublime java tools rstudio bash-it docker
 
 all:
 	@echo "Installing everything!"
@@ -23,6 +23,7 @@ all:
 	make slack
 	make latex
 	make sublime
+	make sublime-packages
 	make java
 	make impressive
 	make doxygen
@@ -42,6 +43,7 @@ tools:
 	git clone https://github.com/gpakosz/.tmux.git ~/.tmux
 	ln -s -f ~/.tmux/.tmux.conf ~/.tmux.conf
 	cp ~/.tmux/.tmux.conf.local ~/.
+	# To get this work as expected replace the original keyboard shortcuts for 'Move to workspace above/below'
 	echo "\n# Customizations to shortcuts" >> ~/.tmux.conf.local
 	echo "unbind <" >> ~/.tmux.conf.local
 	echo "unbind _" >> ~/.tmux.conf.local
@@ -63,13 +65,17 @@ powerline:
 graphics:
 	sudo add-apt-repository ppa:graphics-drivers/ppa
 	make update
-	sudo apt install nvidia-396
+	# sudo apt-get install nvidia-driver-396
+	sudo ubuntu-drivers autoinstall
+
+cuda:
+	make graphics
+	sudo apt-get install nvidia-cuda-toolkit
 
 google_chrome:
 	rm -f google-chrome-stable_current_amd64.deb
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 	sudo apt -y install libappindicator1 libindicator7
-	sudo dpkg -i google-chrome-stable_current_amd64.deb
 	rm -f google-chrome-stable_current_amd64.deb
 
 R:
@@ -81,7 +87,9 @@ R:
 	ln -s -f ~/ubuntu_setup/dotfiles/.Renviron ~/.Renviron
 	ln -s -f ~/ubuntu_setup/dotfiles/.Rprofile ~/.Rprofile
 	echo "$(<dotfiles/.bashrc_r )" >> ~/.bashrc
-	Rscript -e "install.packages(c('devtools', 'prettycode'))"
+	Rscript -e "install.packages(c('devtools', 'prettycode', 'Rcpp', 'RcppArmadillo'))"
+	sudo ln -s -f ~/.R/library/Rcpp/include /usr/include/Rcpp
+	sudo ln -s -f ~/.R/library/RcppArmadillo/include /usr/include/RcppArmadillo
 
 rstudio:
 	rm -f rstudio-xenial-1.1.447-amd64.deb
@@ -106,6 +114,20 @@ sublime:
 	sudo apt-add-repository "deb https://download.sublimetext.com/ apt/stable/"
 	make update
 	sudo apt -y install sublime-text
+	ln -s -f ~/ubuntu_setup/dotfiles/'MyAddLineInBraces.sublime-macro' ~/.config/sublime-text-3/Packages/User/'MyAddLineInBraces.sublime-macro'
+	ln -s -f ~/ubuntu_setup/dotfiles/'Default (Linux).sublime-keymap' ~/.config/sublime-text-3/Packages/User/'Default (Linux).sublime-keymap'
+	ln -s -f ~/ubuntu_setup/dotfiles/'Preferences.sublime-settings' ~/.config/sublime-text-3/Packages/User/'Preferences.sublime-settings'
+
+sublime-packages:
+	git clone https://github.com/randy3k/SendCode.git ~/.config/sublime-text-3/Packages/SendCode
+	git clone https://github.com/nfour/Sublime-Theme-Cola.git ~/.config/sublime-text-3/Packages/"Theme - Cola"
+	sed -i 's/Default.sublime-theme/Cola.sublime-theme/' ~/ubuntu_setup/dotfiles/'Preferences.sublime-settings'
+	# git clone https://github.com/randy3k/R-Box.git ~/.config/sublime-text-3/Packages/R-Box
+	echo "- Install R-Box via package control"
+	git clone https://github.com/niosus/EasyClangComplete.git ~/.config/sublime-text-3/Packages/EasyClangComplete
+	sudo apt-get install clang
+	ln -s -f ~/ubuntu_setup/dotfiles/'EasyClangComplete.sublime-settings' ~/.config/sublime-text-3/Packages/User/'EasyClangComplete.sublime-settings'
+	git clone https://github.com/facelessuser/BracketHighlighter.git ~/.config/sublime-text-3/Packages/BracketHighlighter
 
 java:
 	#FIXME: Do I need oracle jdk or is open enough?
@@ -117,16 +139,6 @@ impressive:
 	sudo tar -xf Impressive-0.12.0.tar.gz -C /opt
 	rm Impressive-0.12.0.tar.gz
 	sudo ln -s /opt/Impressive-0.12.0/impressive.py /usr/bin/imp
-
-ssh-key:
-	ssh-keygen -t rsa -b 4096 -C "janek.thomas@web.de"
-	ssh-add ~/.ssh/id_rsa
-
-
-sublime-links:
-	ln -fs ~/dotfiles/sublime/Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
-	ln -fs ~/dotfiles/sublime/Default\ \(Linux\).sublime-keymap ~/.config/sublime-text-3/Packages/User/Default\ \(Linux\).sublime-keymap
-	ln -fs ~/dotfiles/sublime/SendCode\ \(Linux\).sublime-settings ~/.config/sublime-text-3/Packages/SendCode/SendCode\ \(Linux\).sublime-settings
 
 doxygen:
 	sudo apt-get doxygen

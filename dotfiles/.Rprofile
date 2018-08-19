@@ -11,7 +11,7 @@ options(
   scipen=2, #use scientific notation for values >10^7
   help_type="html", #html help is nicer than the terminal one
   show.signif.stars=FALSE, # evil evil stars
-  deparse.max.lines = 3L # reduce output of traceback,
+  deparse.max.lines = 3L, # reduce output of traceback
   editor = "subl"
   )
 

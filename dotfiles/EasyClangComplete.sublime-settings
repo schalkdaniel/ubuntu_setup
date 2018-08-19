@@ -1,0 +1,11 @@
+{
+  "common_flags" : [
+    // some example includes
+    "-I/usr/include",
+    "-I/usr/include/Rcpp",
+    "-I/usr/include/RcppArmadillo",
+    "-I$project_base_path/src",
+    // this is needed to include the correct headers for clang
+    "-I/usr/lib/clang/$clang_version/include",
+  ]
+}

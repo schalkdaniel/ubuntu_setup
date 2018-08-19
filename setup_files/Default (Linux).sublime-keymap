@@ -18,10 +18,10 @@
 	},
 	// Render actual file:
 	{ 
-		"keys": ["ctrl+shift+r"], 
+		"keys": ["ctrl+shift+k"], 
 		"command": "send_repl", 
 		"args": {
-			"cmd": "setwd(\"$file_path\")\nknitr::knit(\"$file\", output=\"$file_base_name.tex\")\ntools::texi2dvi(\"$file_base_name.tex\", pdf = TRUE)"
+			"cmd": "rmarkdown::render(\"$file\")"
 		}
 	},
 	// Open actual file with google chrome:
