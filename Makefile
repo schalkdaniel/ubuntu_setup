@@ -128,6 +128,7 @@ sublime:
 	sudo apt-add-repository "deb https://download.sublimetext.com/ apt/stable/"
 	make update
 	sudo apt -y install sublime-text
+	subl
 	ln -s -f ~/ubuntu_setup/dotfiles/'MyAddLineInBraces.sublime-macro' ~/.config/sublime-text-3/Packages/User/'MyAddLineInBraces.sublime-macro'
 	ln -s -f ~/ubuntu_setup/dotfiles/'Default (Linux).sublime-keymap' ~/.config/sublime-text-3/Packages/User/'Default (Linux).sublime-keymap'
 	ln -s -f ~/ubuntu_setup/dotfiles/'Preferences.sublime-settings' ~/.config/sublime-text-3/Packages/User/'Preferences.sublime-settings'
@@ -140,6 +141,7 @@ sublime-packages:
 	echo "- Install R-Box via package control"
 	git clone https://github.com/niosus/EasyClangComplete.git ~/.config/sublime-text-3/Packages/EasyClangComplete
 	sudo apt-get install clang
+	clang++ --version
 	ln -s -f ~/ubuntu_setup/dotfiles/'EasyClangComplete.sublime-settings' ~/.config/sublime-text-3/Packages/User/'EasyClangComplete.sublime-settings'
 	git clone https://github.com/facelessuser/BracketHighlighter.git ~/.config/sublime-text-3/Packages/BracketHighlighter
 
