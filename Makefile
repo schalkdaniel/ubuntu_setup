@@ -7,6 +7,19 @@
 
 .PHONY:	update upgrade preparations graphics google_chrome python slack latex sublime java tools rstudio bash-it docker
 
+server: 
+	@echo "Preparing server for data science!!!"
+	make update
+	make upgrade
+	make preparations
+	make graphics
+	make cuda
+	make R
+	make python
+	make tensorflow-keras
+	make latex
+	
+
 all:
 	@echo "Installing everything!"
 	make update
@@ -58,7 +71,7 @@ bash-it:
 	~/.bash_it/install.sh
 
 powerline:
-	make bash-it
+	# make bash-it
 	sudo apt-get install fonts-powerline
 	sudo apt-get install powerline
 	sed -i 's/bobby/powerline-plain/' ~/.bashrc
@@ -157,8 +170,8 @@ impressive:
 	sudo ln -s /opt/Impressive-0.12.0/impressive.py /usr/bin/imp
 
 doxygen:
-	sudo apt-get doxygen
-	sudo apt-get graphviz
+	sudo apt-get install doxygen
+	sudo apt-get install graphviz
 
 ssh-key:
 	ssh-keygen -t rsa -b 4096 -C "d-schalk@t-online.de"
