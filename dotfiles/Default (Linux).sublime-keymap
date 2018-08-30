@@ -1,4 +1,5 @@
 [
+  { "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
 	// Make curved and squqre brackets behave like curly braces:
 	{ "keys": ["enter"], "command": "run_macro_file", "args": {"file": "res://Packages/User/MyAddLineInBraces.sublime-macro"}, "context":
     [

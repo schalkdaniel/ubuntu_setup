@@ -7,6 +7,19 @@
 
 .PHONY:	update upgrade preparations graphics google_chrome python slack latex sublime java tools rstudio bash-it docker
 
+server: 
+	@echo "Preparing server for data science!!!"
+	make update
+	make upgrade
+	make preparations
+	make graphics
+	make cuda
+	make R
+	make python
+	make tensorflow-keras
+	make latex
+	
+
 all:
 	@echo "Installing everything!"
 	make update
@@ -57,7 +70,7 @@ bash-it:
 	~/.bash_it/install.sh
 
 powerline:
-	make bash-it
+	# make bash-it
 	sudo apt-get install fonts-powerline
 	sudo apt-get install powerline
 	sed -i 's/bobby/powerline-plain/' ~/.bashrc
@@ -146,6 +159,7 @@ sublime:
 	sudo apt-add-repository "deb https://download.sublimetext.com/ apt/stable/"
 	make update
 	sudo apt -y install sublime-text
+	subl
 	ln -s -f ~/ubuntu_setup/dotfiles/'MyAddLineInBraces.sublime-macro' ~/.config/sublime-text-3/Packages/User/'MyAddLineInBraces.sublime-macro'
 	ln -s -f ~/ubuntu_setup/dotfiles/'Default (Linux).sublime-keymap' ~/.config/sublime-text-3/Packages/User/'Default (Linux).sublime-keymap'
 	ln -s -f ~/ubuntu_setup/dotfiles/'Preferences.sublime-settings' ~/.config/sublime-text-3/Packages/User/'Preferences.sublime-settings'
@@ -158,6 +172,7 @@ sublime-packages:
 	echo "- Install R-Box via package control"
 	git clone https://github.com/niosus/EasyClangComplete.git ~/.config/sublime-text-3/Packages/EasyClangComplete
 	sudo apt-get install clang
+	clang++ --version
 	ln -s -f ~/ubuntu_setup/dotfiles/'EasyClangComplete.sublime-settings' ~/.config/sublime-text-3/Packages/User/'EasyClangComplete.sublime-settings'
 	git clone https://github.com/facelessuser/BracketHighlighter.git ~/.config/sublime-text-3/Packages/BracketHighlighter
 	git clone git://github.com/jisaacks/GitGutter.git ~/.config/sublime-text-3/Packages/GitGutter
@@ -167,8 +182,8 @@ java:
 	sudo apt -y install default-jre default-jdk
 
 doxygen:
-	sudo apt-get doxygen
-	sudo apt-get graphviz
+	sudo apt-get install doxygen
+	sudo apt-get install graphviz
 
 ssh-key:
 	ssh-keygen -t rsa -b 4096 -C "d-schalk@t-online.de"
