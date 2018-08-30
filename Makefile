@@ -26,7 +26,6 @@ all:
 	make sublime
 	make sublime-packages
 	make java
-	make impressive
 	make doxygen
 
 update:
@@ -72,6 +71,10 @@ graphics:
 cuda:
 	make graphics
 	sudo apt-get install nvidia-cuda-toolkit
+  # sudo dpkg -i cuda-repo-ubuntu1710_9.2.148-1_amd64.deb
+  # sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1710/x86_64/7fa2af80.pub
+  # sudo apt-get update
+  # sudo apt-get install cuda
 
 google_chrome:
 	rm -f google-chrome-stable_current_amd64.deb
@@ -107,15 +110,30 @@ python:
 	sudo apt-get install python3-dev
 	sudo apt install python3-pip
 
+# cudnn (https://medium.com/@taylordenouden/installing-tensorflow-gpu-on-ubuntu-18-04-89a142325138):
+  # # Unpack the archive
+  # tar -zxvf cudnn-9.0-linux-x64-v7.1.tgz 
+  # # Move the unpacked contents to your CUDA directory
+  # sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-9.0/lib64/
+  # sudo cp  cuda/include/cudnn.h /usr/local/cuda-9.0/include/
+  # # Give read access to all users
+  # sudo chmod a+r /usr/local/cuda-9.0/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 
-# tensorflow-keras:
-# 	make cuda
-# 	sudo pip3 install -U tensorflow-gpu  # Python 3.n
-# 	pip3 install numpy scipy
-# 	pip3 install scikit-learn
-# 	pip3 install pillow
-# 	pip3 install h5py
-# 	pip3 install keras
+  # sudo apt-get install libcupti-dev
+
+  # # Add to .bashrc:
+  # export PATH=/usr/lib/cuda/bin${PATH:+:${PATH}}
+  # export LD_LIBRARY_PATH=/usr/bin/cuda/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+
+tensorflow-keras:
+	make cuda
+	sudo pip3 install -U tensorflow-gpu  # Python 3.n
+	pip3 install numpy scipy
+	pip3 install scikit-learn
+	pip3 install pillow
+	pip3 install h5py
+	pip3 install keras
 
 slack:
 	sudo snap install slack --classic
@@ -142,17 +160,11 @@ sublime-packages:
 	sudo apt-get install clang
 	ln -s -f ~/ubuntu_setup/dotfiles/'EasyClangComplete.sublime-settings' ~/.config/sublime-text-3/Packages/User/'EasyClangComplete.sublime-settings'
 	git clone https://github.com/facelessuser/BracketHighlighter.git ~/.config/sublime-text-3/Packages/BracketHighlighter
+	git clone git://github.com/jisaacks/GitGutter.git ~/.config/sublime-text-3/Packages/GitGutter
 
 java:
 	#FIXME: Do I need oracle jdk or is open enough?
 	sudo apt -y install default-jre default-jdk
-
-impressive:
-	sudo apt -y install python-opengl python-pygame python-pil
-	wget https://sourceforge.net/projects/impressive/files/Impressive/0.12.0/Impressive-0.12.0.tar.gz
-	sudo tar -xf Impressive-0.12.0.tar.gz -C /opt
-	rm Impressive-0.12.0.tar.gz
-	sudo ln -s /opt/Impressive-0.12.0/impressive.py /usr/bin/imp
 
 doxygen:
 	sudo apt-get doxygen
