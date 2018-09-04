@@ -5,7 +5,7 @@
 #
 # Adapted from: https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 
-.PHONY:	update upgrade preparations graphics google_chrome python slack latex sublime java tools rstudio bash-it docker
+.PHONY:	update upgrade preparations graphics google_chrome python slack latex sublime java tools rstudio bash-it docker jupyter
 
 server: 
 	@echo "Preparing server for data science!!!"
@@ -38,6 +38,7 @@ all:
 	make latex
 	make sublime
 	make sublime-packages
+	make jupyter
 	make java
 	make doxygen
 
@@ -176,6 +177,13 @@ sublime-packages:
 	ln -s -f ~/ubuntu_setup/dotfiles/'EasyClangComplete.sublime-settings' ~/.config/sublime-text-3/Packages/User/'EasyClangComplete.sublime-settings'
 	git clone https://github.com/facelessuser/BracketHighlighter.git ~/.config/sublime-text-3/Packages/BracketHighlighter
 	git clone git://github.com/jisaacks/GitGutter.git ~/.config/sublime-text-3/Packages/GitGutter
+
+jupyter:
+	sudo apt-get install jupyter-client
+	sudo apt-get install jupyter-notebook
+	Rscript -e "install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))"
+  Rscript -e "devtools::install_github('IRkernel/IRkernel')"
+  Rcscipt -e "IRkernel::installspec()"
 
 java:
 	#FIXME: Do I need oracle jdk or is open enough?
