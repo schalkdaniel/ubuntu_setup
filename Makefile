@@ -184,6 +184,7 @@ jupyter:
 	Rscript -e "install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))"
   Rscript -e "devtools::install_github('IRkernel/IRkernel')"
   Rcscipt -e "IRkernel::installspec()"
+  pip3 install notedown
 
 java:
 	#FIXME: Do I need oracle jdk or is open enough?
