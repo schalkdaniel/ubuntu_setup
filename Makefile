@@ -183,7 +183,7 @@ jupyter:
 	sudo apt-get install jupyter-notebook
 	Rscript -e "install.packages(c(\"repr\", \"IRdisplay\", \"evaluate\", \"crayon\", \"pbdZMQ\", \"devtools\", \"uuid\", \"digest\"))"
 	Rscript -e "devtools::install_github(\"IRkernel/IRkernel\")"
-	Rcscipt -e "IRkernel::installspec()"
+	Rscript -e "IRkernel::installspec()"
 	pip3 install notedown
 
 java:
