@@ -85,10 +85,10 @@ graphics:
 cuda:
 	make graphics
 	sudo apt-get install nvidia-cuda-toolkit
-  # sudo dpkg -i cuda-repo-ubuntu1710_9.2.148-1_amd64.deb
-  # sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1710/x86_64/7fa2af80.pub
-  # sudo apt-get update
-  # sudo apt-get install cuda
+	# sudo dpkg -i cuda-repo-ubuntu1710_9.2.148-1_amd64.deb
+	# sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1710/x86_64/7fa2af80.pub
+	# sudo apt-get update
+	# sudo apt-get install cuda
 
 google_chrome:
 	rm -f google-chrome-stable_current_amd64.deb
@@ -181,10 +181,10 @@ sublime-packages:
 jupyter:
 	sudo apt-get install jupyter-client
 	sudo apt-get install jupyter-notebook
-	Rscript -e "install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))"
-  Rscript -e "devtools::install_github('IRkernel/IRkernel')"
-  Rcscipt -e "IRkernel::installspec()"
-  pip3 install notedown
+	Rscript -e "install.packages(c(\"repr\", \"IRdisplay\", \"evaluate\", \"crayon\", \"pbdZMQ\", \"devtools\", \"uuid\", \"digest\"))"
+	Rscript -e "devtools::install_github(\"IRkernel/IRkernel\")"
+	Rcscipt -e "IRkernel::installspec()"
+	pip3 install notedown
 
 java:
 	#FIXME: Do I need oracle jdk or is open enough?
