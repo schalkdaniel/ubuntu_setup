@@ -16,7 +16,5 @@ options(
   )
 
 if(interactive()) {
-  suppressMessages(library(prettycode))
+ suppressMessages(prettycode::prettycode())
 }
-
-
