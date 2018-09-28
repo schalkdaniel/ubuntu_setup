@@ -5,7 +5,7 @@
 #
 # Adapted from: https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 
-.PHONY:	update upgrade preparations graphics google_chrome python slack latex sublime java tools rstudio bash-it docker jupyter
+.PHONY:	update upgrade gcc++ preparations graphics google_chrome python slack latex sublime java tools rstudio bash-it docker jupyter
 
 server: 
 	@echo "Preparing server for data science!!!"
@@ -24,6 +24,7 @@ all:
 	@echo "Installing everything!"
 	make update
 	make upgrade
+	make gcc++
 	make preparations
 	make tools
 	make bash-it
@@ -47,6 +48,10 @@ update:
 
 upgrade:
 	sudo apt -y upgrade
+
+gcc++:
+	sudo apt-get install gcc-8 g++-8
+	sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 60 --slave /usr/bin/g++ g++ /usr/bin/g++-8
 
 preparations:
 	make update
