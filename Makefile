@@ -5,7 +5,7 @@
 #
 # Adapted from: https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 
-.PHONY:	update upgrade gcc++ preparations graphics google_chrome python slack latex sublime java tools rstudio bash-it docker jupyter
+.PHONY:	update upgrade gcc++ preparations graphics google_chrome python slack latex sublime java tools rstudio bash-it docker jupyter virtualbox
 
 server: 
 	@echo "Preparing server for data science!!!"
@@ -42,6 +42,7 @@ all:
 	make jupyter
 	make java
 	make doxygen
+	make virtualbox
 
 update:
 	sudo apt update
@@ -202,3 +203,6 @@ doxygen:
 ssh-key:
 	ssh-keygen -t rsa -b 4096 -C "d-schalk@t-online.de"
 	ssh-add ubuntu_home_git
+
+virtualbox:
+	sudo apt-get install virtualbox
