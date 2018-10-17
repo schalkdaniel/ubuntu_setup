@@ -61,5 +61,11 @@
     "keys": ["ctrl+alt+i"],
     "command": "insert_snippet",
     "args": { "contents": "```{r}\n$0\n```"}
+  },
+  // Insert YAML header template for pdfs:
+  {
+    "keys": ["ctrl+shift+y"],
+    "command": "insert_snippet",
+    "args": { "contents": "---\ntitle: $0\nauthor: Daniel Schalk\ndate: \\today\noutput: pdf_document\n---\n"}
   }
 ]
