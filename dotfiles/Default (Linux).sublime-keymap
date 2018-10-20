@@ -67,5 +67,16 @@
     "keys": ["ctrl+shift+y"],
     "command": "insert_snippet",
     "args": { "contents": "---\ntitle: $0\nauthor: Daniel Schalk\ndate: \\today\noutput: pdf_document\n---\n"}
-  }
+  },
+  // Start and quit R from sublime:
+  { 
+    "keys": ["ctrl+shift+r"], 
+    "command": "send_repl", 
+    "args": { "cmd": "R" }
+  },
+  { 
+    "keys": ["ctrl+shift+q"], 
+    "command": "send_repl", 
+    "args": { "cmd": "q()" }
+  },
 ]
