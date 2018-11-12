@@ -4,6 +4,10 @@
 	[
 		"Vintage"
 	],
+	"mdpopups.sublime_user_lang_map":
+	{
+	},
+	"mdpopups.use_sublime_highlighter": true,
 	"spell_check": true,
 	"tab_size": 2,
 	"theme": "Cola.sublime-theme",

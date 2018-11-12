@@ -22,7 +22,7 @@
 		"keys": ["ctrl+shift+k"], 
 		"command": "send_repl", 
 		"args": {
-			"cmd": "rmarkdown::render(\"$file\")"
+			"cmd": "setwd(\"$file_path\")\nif (grepl(\"*.rnw$\", tolower(\"$file\"))) \nknitr::knit2pdf(\"$file\");\n if (grepl(\"*.rmd$\", tolower(\"$file\"))) \nrmarkdown::render(\"$file\")\n"
 		}
 	},
 	// Open actual file with google chrome:
