@@ -50,6 +50,9 @@
 		"command": "select_lines", 
 		"args": {"forward": true} 
 	},
+  // Switch between views
+  { "keys": ["ctrl+alt+right"], "command": "next_view_in_stack" },
+  { "keys": ["ctrl+alt+left"], "command": "prev_view_in_stack" },
 	// Comment or delete comment from selection: 
 	{ 
 		"keys": ["ctrl+shift+c"], 
@@ -79,4 +82,9 @@
     "command": "send_repl", 
     "args": { "cmd": "q()" }
   },
+  {
+    "keys": ["ctrl+shift+l+a"],
+    "command": "send_repl",
+    "args": { "cmd": "devtools::load_all()" }
+  }
 ]

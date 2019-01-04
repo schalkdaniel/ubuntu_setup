@@ -6,6 +6,15 @@
 	],
 	"mdpopups.sublime_user_lang_map":
 	{
+		"s":
+		[
+			[
+				"r"
+			],
+			[
+				"R/R.sublime-syntax"
+			]
+		]
 	},
 	"mdpopups.use_sublime_highlighter": true,
 	"spell_check": true,
