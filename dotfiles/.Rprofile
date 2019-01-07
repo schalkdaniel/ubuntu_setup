@@ -12,7 +12,8 @@ options(
   help_type="html", #html help is nicer than the terminal one
   show.signif.stars=FALSE, # evil evil stars
   deparse.max.lines = 3L, # reduce output of traceback
-  editor = "subl"
+  editor = "subl",
+  help_type = "text"
   )
 
 if(interactive()) {
