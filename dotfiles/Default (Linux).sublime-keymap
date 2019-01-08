@@ -48,11 +48,11 @@
 	{ 
 		"keys": ["ctrl+alt+down"], 
 		"command": "select_lines", 
-		"args": {"forward": true} 
+		"args": {"forward": false} 
 	},
   // Switch between views
-  { "keys": ["ctrl+alt+right"], "command": "next_view_in_stack" },
-  { "keys": ["ctrl+alt+left"], "command": "prev_view_in_stack" },
+  { "keys": ["ctrl+alt+right"], "command": "next_view" },
+  { "keys": ["ctrl+alt+left"], "command": "prev_view" },
 	// Comment or delete comment from selection: 
 	{ 
 		"keys": ["ctrl+shift+c"], 
