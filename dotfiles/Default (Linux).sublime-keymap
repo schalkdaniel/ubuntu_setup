@@ -18,46 +18,46 @@
     ]
 	},
 	// Render actual file:
-	{ 
-		"keys": ["ctrl+shift+k"], 
-		"command": "send_repl", 
+	{
+		"keys": ["ctrl+shift+k"],
+		"command": "send_repl",
 		"args": {
 			"cmd": "setwd(\"$file_path\")\nif (grepl(\"*.rnw$\", tolower(\"$file\"))) \nknitr::knit2pdf(\"$file\");\n if (grepl(\"*.rmd$\", tolower(\"$file\"))) \nrmarkdown::render(\"$file\")\n"
 		}
 	},
 	// Open actual file with google chrome:
-	{ 
-		"keys": ["ctrl+shift+g"], 
-		"command": "send_repl", 
+	{
+		"keys": ["ctrl+shift+g"],
+		"command": "send_repl",
 		"args": {
 			"cmd": "google-chrome \"$file\""
 		}
 	},
 	// Reindent selection:
 	{
-		"keys": ["ctrl+i"], 
-		"command": "reindent", 
+		"keys": ["ctrl+i"],
+		"command": "reindent",
 		"args": {"single_line": true}
 	},
 	// Select line (multiple cursers):
-	{ 
-		"keys": ["ctrl+alt+up"], 
-		"command": "select_lines", 
-		"args": {"forward": false} 
+	{
+		"keys": ["ctrl+alt+up"],
+		"command": "select_lines",
+		"args": {"forward": false}
 	},
-	{ 
-		"keys": ["ctrl+alt+down"], 
-		"command": "select_lines", 
-		"args": {"forward": false} 
+	{
+		"keys": ["ctrl+alt+down"],
+		"command": "select_lines",
+		"args": {"forward": true}
 	},
   // Switch between views
   { "keys": ["ctrl+alt+right"], "command": "next_view" },
   { "keys": ["ctrl+alt+left"], "command": "prev_view" },
-	// Comment or delete comment from selection: 
-	{ 
-		"keys": ["ctrl+shift+c"], 
-		"command": "toggle_comment", 
-		"args": { "block": false } 
+	// Comment or delete comment from selection:
+	{
+		"keys": ["ctrl+shift+c"],
+		"command": "toggle_comment",
+		"args": { "block": false }
 	},
   // Insert rmd code chunks
   {
@@ -72,14 +72,14 @@
     "args": { "contents": "---\ntitle: $0\nauthor: Daniel Schalk\ndate: \\today\noutput: pdf_document\n---\n"}
   },
   // Start and quit R from sublime:
-  { 
-    "keys": ["ctrl+shift+r"], 
-    "command": "send_repl", 
+  {
+    "keys": ["ctrl+shift+r"],
+    "command": "send_repl",
     "args": { "cmd": "R" }
   },
-  { 
-    "keys": ["ctrl+shift+q"], 
-    "command": "send_repl", 
+  {
+    "keys": ["ctrl+shift+q"],
+    "command": "send_repl",
     "args": { "cmd": "q()" }
   },
   {
