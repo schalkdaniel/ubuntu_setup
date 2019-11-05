@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
 	"font_size": 11,
+=======
+	"font_size": 9,
+>>>>>>> 72d8d4ed7d098d663bc750c67c5f15be78b839a0
 	"ignored_packages":
 	[
 		"Vintage"
